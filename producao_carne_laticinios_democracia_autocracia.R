@@ -24,6 +24,7 @@ library(tidyverse)
 library(cols4all)
 library(hrbrthemes)
 library(ggthemes)
+library(scales)
 
 # Carregar dados ---------------------------------------------------------------------------------------------------------------------------
 
@@ -68,7 +69,8 @@ ggplot(prod_carne1, aes(x = fct_reorder(Entity, media),
   scale_fill_manual(values = c("#88CCEE", "#CC6677",
                                "#DDCC77", "#117733",
                                "#332288", "#AA4499")) +
-  scale_y_continuous(expand = expansion(mult = c(0,0))) +
+  scale_y_continuous(expand = expansion(mult = c(0,0)),
+                      labels = scales::comma) +
   labs(x = "Países", y = "Produção de carne (toneladas)") +
   theme_ipsum(axis_text_size = 14, axis_title_size = 16) +
   theme(legend.position = "none",
