@@ -65,14 +65,29 @@ ggplot(prod_carne1, aes(x = fct_reorder(Entity, media),
                         y = media, fill = Entity)) +
   geom_col(width = 0.9) +
   geom_errorbar(aes(ymin = media - se, ymax = media + se),
-                width = 0.3, size = 0.8) +
+                width = 0.2, size = 0.8) +
   scale_fill_manual(values = c("#88CCEE", "#CC6677",
                                "#DDCC77", "#117733",
                                "#332288", "#AA4499")) +
   scale_y_continuous(expand = expansion(mult = c(0,0)),
                       labels = scales::comma) +
+  scale_x_discrete(labels = c("Coreia do Norte", "Cuba", "Japão",
+                              "Alemanha", "Estados Unidos", "China")) +
   labs(x = "Países", y = "Produção de carne (toneladas)") +
   theme_ipsum(axis_text_size = 14, axis_title_size = 16) +
   theme(legend.position = "none",
         axis.text = element_text(color = "black"))
 
+ggplot(prod_carne2, aes(x = Year, y = producao, 
+                        group = Entity, color = Entity)) +
+  geom_point(shape = 15, size = 2) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = c("#88CCEE", "#CC6677",
+                               "#DDCC77", "#117733",
+                               "#332288", "#AA4499"),
+                     labels = c("China", "Cuba", "Alemanha",
+                                "Japão", "Coreia do Norte", "Estados Unidos")) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(x = "Tempo (anos)", y = "Produção de carne (toneladas)") +
+  theme_ipsum(axis_text_size = 14, axis_title_size = 16) +
+  theme(axis.text = element_text(color = "black"))
