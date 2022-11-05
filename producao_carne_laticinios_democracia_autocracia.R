@@ -18,4 +18,19 @@
 ### produzir e consumir carne, laticínios e outros produtos protéicos de uma forma que
 ### reduza os impactos ambientais.
 
+# Carregar pacotes -------------------------------------------------------------------------------------------------------------------------
+
+library(tidyverse)
+library(cols4all)
+library(hrbrthemes)
+library(ggthemes)
+
+# Carregar dados ---------------------------------------------------------------------------------------------------------------------------
+
+prod_carne <- read.csv("meat-production-tonnes.csv")
+view(prod_carne)
+names(prod_carne)
+
+# Manipular dados --------------------------------------------------------------------------------------------------------------------------
+
 
