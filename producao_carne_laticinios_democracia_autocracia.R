@@ -88,6 +88,20 @@ ggplot(prod_carne2, aes(x = Year, y = producao,
                      labels = c("China", "Cuba", "Alemanha",
                                 "Japão", "Coreia do Norte", "Estados Unidos")) +
   scale_y_continuous(labels = scales::comma) +
-  labs(x = "Tempo (anos)", y = "Produção de carne (toneladas)") +
+  labs(x = "Tempo (anos)", y = "Produção de carne (toneladas)", color = "Países") +
   theme_ipsum(axis_text_size = 14, axis_title_size = 16) +
   theme(axis.text = element_text(color = "black"))
+
+ggplot(prod_carne3, aes(x = Year, y = producao, 
+                        group = Entity, color = Entity)) +
+  geom_line(size = 2) +
+  scale_color_manual(values = c('#1B9E77', '#999999','#E69F00'),
+                     labels = c("Brasil", "China", "Estados Unidos")) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(x = "Tempo (anos)", y = "Produção de carne (toneladas)",
+       color = "Países") +
+  theme_light() +
+  theme(axis.title = element_text(size = 18),
+        axis.text = element_text(color = "black", size = 15),
+        legend.text = element_text(size = 12))
+
