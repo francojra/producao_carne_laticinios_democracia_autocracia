@@ -33,4 +33,30 @@ names(prod_carne)
 
 # Manipular dados --------------------------------------------------------------------------------------------------------------------------
 
+prod_carne <- prod_carne %>%
+  select(-Code) %>%
+  rename(producao = Meat..total...00001765....Production...005510....tonnes) %>%
+  view()
+
+prod_carne1 <- prod_carne %>%
+  filter(Entity %in% c("United States", "Germany", "Japan",
+                       "China", "Cuba", "North Korea")) %>%
+  group_by(Entity) %>%
+  summarise(media = mean(producao),
+            sd = sd(producao), n = n(),
+            se = sd/sqrt(n)) %>%
+  view()
+
+prod_carne2 <- prod_carne %>%
+  filter(Entity %in% c("United States", "Germany", "Japan",
+                       "China", "Cuba", "North Korea")) %>%
+  view()
+
+prod_carne3 <- prod_carne %>%
+  filter(Entity %in% c("United States", "China", "Brazil")) %>%
+  view()
+
+# Gráficos ---------------------------------------------------------------------------------------------------------------------------------
+
+
 
